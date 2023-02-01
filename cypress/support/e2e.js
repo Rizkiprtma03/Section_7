@@ -18,8 +18,3 @@ import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
-const cucumber = require('cypress-cucumber-reprocessor').default
-
-module.exports = (on, config) => {
-    on('file:reprocessor', cucumber)
-}

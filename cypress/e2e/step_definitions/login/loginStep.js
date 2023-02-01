@@ -1,17 +1,18 @@
 /// <reference types="cypress"/>
 // import function from module cypress-cucumber-preprocessor
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import LoginPage from 'F:/Section_7/cypress/pages/LoginPage'
 
 // Given, When dan Then berdasarkan pada file yang sesuai misal pada case ini
 //yaitu file feature/login.feature
 Given('I open login page', () => {
-    cy.visit('http://zero.webappsecurity.com/login.html')
+    LoginPage.visitUrl()
 })
 
 When('I submit login', () => {
-    cy.get('#user_login').type('username')
-    cy.get('#user_password').type('password')
-    cy.get('input[name="submit"]').click()
+    LoginPage.fillUsername('username')
+    LoginPage.fillPassword('password')
+    LoginPage.signIn()
 })
 
 Then('I should see homepage', () => {
